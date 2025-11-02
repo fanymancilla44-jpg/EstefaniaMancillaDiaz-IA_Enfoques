@@ -230,4 +230,4 @@ if __name__ == "__main__":
     # - escogemos algunas variables criticas (cutset_vars)
     # - probamos todas las opciones validas de esas variables primero
     # - luego resolvemos el resto normal
-    # - esto reduce la dificultad del problema grande
+    # - esto reduce la dificultad del problema grande.

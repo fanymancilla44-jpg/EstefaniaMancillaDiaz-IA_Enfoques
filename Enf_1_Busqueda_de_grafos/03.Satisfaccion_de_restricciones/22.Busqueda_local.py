@@ -198,4 +198,4 @@ if __name__ == "__main__":
     # - empiezo con algo aleatorio aunque este mal
     # - busco que variable causa problemas
     # - cambio solo esa variable al valor que cause menos conflicto
-    # - es busqueda local, no recursion
+    # - es busqueda local, no recursion.
