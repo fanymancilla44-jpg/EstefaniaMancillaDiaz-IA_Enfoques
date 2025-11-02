@@ -85,4 +85,4 @@ if __name__ == "__main__":
     # - siempre acepto solo un movimiento que mejore
     # - si ya no puedo mejorar, me detengo
     # - esto no garantiza el mejor valor global
-    #   se puede quedar en un valor bueno pero no perfecto
+    # - se puede quedar en un valor bueno pero no perfecto
