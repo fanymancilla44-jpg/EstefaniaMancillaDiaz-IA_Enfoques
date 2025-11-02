@@ -1,4 +1,4 @@
-# busqueda en profundidad iterativa
+# busqueda en profundidad Iterativa
 # esta busqueda es como una version mas lista de la profundidad limitada
 # 1 primero intento con limite 1
 # 2 si no lo encuentro, intento con limite 2

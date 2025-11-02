@@ -1,4 +1,4 @@
-# busqueda bidireccional
+# Busqueda bidireccional
 # en lugar de buscar solo desde inicio hacia objetivo
 # buscamos desde los dos lados al mismo tiempo
 # lado inicio -> avanza normal
