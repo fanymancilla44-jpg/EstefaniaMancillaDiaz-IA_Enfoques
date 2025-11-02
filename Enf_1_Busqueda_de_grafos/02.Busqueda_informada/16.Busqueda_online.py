@@ -99,7 +99,6 @@ if __name__ == "__main__":
     # mundo_real es el mapa verdadero
     # este grafo SI lo conoce el programa
     # pero el agente lo va aprendiendo poco a poco con paso_online()
-
     # ejemplo tipo mapa de cuartos conectados
     # A -> B, C
     # B -> D
