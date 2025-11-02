@@ -125,7 +125,7 @@ if __name__ == "__main__":
     for paso, estados in enumerate(historial):
         print(" paso", paso, "=>", estados)
 
-    # notas:
+ # notas:
     # - k es el tamano del haz cuantos estados mantengo
     # - solo sigo a los k mejores cada vuelta
     # - historial guarda la lista de estados que quedaron en cada iteracion

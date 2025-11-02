@@ -1,4 +1,4 @@
-# algoritmos geneticos
+# Algoritmos geneticos
 # un algoritmo genetico es una forma de buscar una buena solucion
 # probando muchas posibles respuestas al mismo tiempo
 # sirve cuando no sabemos la respuesta exacta, pero podemos medir
