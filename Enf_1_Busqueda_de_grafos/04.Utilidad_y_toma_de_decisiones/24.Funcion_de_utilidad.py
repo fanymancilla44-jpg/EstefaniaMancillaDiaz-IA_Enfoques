@@ -1,4 +1,4 @@
-# teoria de la utilidad: funcion de utilidad
+# Teoria de la utilidad: funcion de utilidad
 # la utilidad es un numero que dice que tan bueno es un resultado para mi.
 # no siempre es dinero. puede ser comodidad, felicidad, seguridad, etc.
 # si tengo varias opciones (acciones) y cada opcion puede tener diferentes resultados,

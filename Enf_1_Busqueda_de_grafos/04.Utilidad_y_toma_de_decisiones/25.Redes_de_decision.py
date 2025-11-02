@@ -1,4 +1,4 @@
-# redes de decision
+# Redes de decision
 # una red de decision mezcla 3 cosas:
 # 1. decision (lo que yo elijo hacer)
 # 2. azar / probabilidad (lo que puede pasar despues de mi decision)
