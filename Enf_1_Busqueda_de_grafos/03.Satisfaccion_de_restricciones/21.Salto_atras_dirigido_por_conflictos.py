@@ -1,4 +1,4 @@
-# salto atras dirigido por conflictos
+# Salto atras dirigido por conflictos
 # es parecido a backtracking, pero mas listo.
 # si una eleccion causa un problema, no solo me regreso 1 paso,
 # salto directo hasta la variable que causo el conflicto.

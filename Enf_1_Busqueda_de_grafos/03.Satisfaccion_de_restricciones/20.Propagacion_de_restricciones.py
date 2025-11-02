@@ -149,7 +149,6 @@ if __name__ == "__main__":
         "b": ["a", "c"],
         "c": ["b"]
     }
-
     # restriccion_binaria:
     # esta funcion define la regla entre dos variables conectadas
     # aqui la regla es:
