@@ -5,7 +5,7 @@
 # solucion:
 # guardamos a que lugares ya fuimos (visitados)
 # para no volver a meterlos otra vez
-# asi no repetimos lugares
+# Asi no repetimos lugares
 
 from collections import deque  # deque = cola fifo (primero en entrar, primero en salir)
 
