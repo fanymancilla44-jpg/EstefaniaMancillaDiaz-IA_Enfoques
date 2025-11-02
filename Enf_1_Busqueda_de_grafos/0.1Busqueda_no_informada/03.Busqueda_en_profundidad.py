@@ -7,7 +7,6 @@
 # dfs se mete directo por un camino hasta el fondo
 
 def dfs_camino(grafo, inicio, objetivo, visitados=None, camino=None):
-    # grafo: diccionario que dice a donde puedo ir desde cada lugar
     # inicio: donde empiezo
     # objetivo: a donde quiero llegar
     # esta funcion regresa un camino (lista) desde inicio hasta objetivo

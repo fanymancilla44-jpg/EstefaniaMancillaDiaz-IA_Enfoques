@@ -12,7 +12,7 @@ def dfs_limitada(grafo, actual, objetivo, limite, camino=None):
     # objetivo: a donde quiero llegar
     # limite: cuanta profundidad maxima puedo bajar
     # camino: el camino que llevo hasta ahorita
-
+    
     # esta parte solo corre la primera vez para iniciar el camino
     if camino is None:
         camino = [actual]
