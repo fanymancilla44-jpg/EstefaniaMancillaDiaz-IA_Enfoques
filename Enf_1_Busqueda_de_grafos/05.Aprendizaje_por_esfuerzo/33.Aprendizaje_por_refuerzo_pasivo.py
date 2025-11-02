@@ -1,4 +1,4 @@
-# aprendizaje por refuerzo pasivo
+# Aprendizaje por refuerzo pasivo
 # - el agente ya tiene una politica fija (ya sabe que accion tomar en cada estado)
 # - el agente NO trata de cambiar la politica todavia
 # - solo observa episodios y aprende "que tan bueno es cada estado"

@@ -1,4 +1,4 @@
-# aprendizaje por refuerzo activo
+# Aprendizaje por refuerzo activo
 # ahora el agente ya no solo observa.
 # ahora el agente intenta APRENDER que accion tomar
 # vamos a usar una mini tabla Q:
