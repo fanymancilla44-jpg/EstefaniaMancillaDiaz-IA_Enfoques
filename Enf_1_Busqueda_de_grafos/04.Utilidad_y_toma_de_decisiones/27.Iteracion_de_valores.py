@@ -1,4 +1,4 @@
-# iteracion de valores
+# Iteracion de valores
 # calculamos que tan bueno es estar en cada estado
 # suponiendo que vamos a actuar de forma inteligente.
 # esto se usa en planeacion y aprendizaje por refuerzo.

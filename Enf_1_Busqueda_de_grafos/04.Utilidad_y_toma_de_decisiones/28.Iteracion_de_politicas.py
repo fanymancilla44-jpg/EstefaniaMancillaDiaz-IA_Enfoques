@@ -1,4 +1,4 @@
-# iteracion de politicas
+# Iteracion de politicas
 # una politica dice que accion tomar en cada estado.
 # 1) evalua esa politica (que tan buena es si la sigo)
 # 2) trata de mejorarla cambiando las acciones donde convenga
