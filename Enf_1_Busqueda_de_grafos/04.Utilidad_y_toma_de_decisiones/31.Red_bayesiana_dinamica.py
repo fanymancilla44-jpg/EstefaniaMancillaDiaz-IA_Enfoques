@@ -1,4 +1,4 @@
-# red bayesiana dinamica
+# Red bayesiana dinamica
 # una red bayesiana dinamica (dbn) modela como cambian las cosas con el tiempo.
 # ejemplo: clima_hoy -> clima_manana
 

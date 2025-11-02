@@ -1,4 +1,4 @@
-# teoria de juegos: equilibrios y mecanismos
+# Teoria de juegos: equilibrios y mecanismos
 # en teoria de juegos hay varios jugadores.
 # cada jugador escoge una accion/estrategia.
 # lo que ganas depende de lo que haces tu y lo que hace el otro.
