@@ -190,7 +190,6 @@ if __name__ == "__main__":
         return True
 
     restricciones = [regla_no_mismo_dia, regla_prog_no_lunes]
-
     # corremos la busqueda
     solucion = forward_checking(variables, dominios, restricciones)
 

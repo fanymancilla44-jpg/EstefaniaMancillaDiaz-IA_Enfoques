@@ -115,7 +115,6 @@ if __name__ == "__main__":
     solucion = backtracking(variables, dominios, restricciones)
 
     print("solucion con vuelta atras:", solucion)
-
     # que esta pasando en backtracking paso a paso:
     # 1. intenta dar dia a mate
     # 2. luego da dia a fisica
