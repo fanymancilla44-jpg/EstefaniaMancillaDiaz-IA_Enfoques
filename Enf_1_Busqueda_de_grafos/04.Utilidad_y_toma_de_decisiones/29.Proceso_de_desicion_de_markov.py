@@ -1,4 +1,4 @@
-# mdp proceso de decision de markov
+# Mdp proceso de decision de markov
 # un mdp describe una decision por pasos:
 # - tengo un estado actual
 # - elijo una accion

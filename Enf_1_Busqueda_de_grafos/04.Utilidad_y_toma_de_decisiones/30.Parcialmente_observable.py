@@ -1,4 +1,4 @@
-# parcialmente observable
+# Parcialmente observable
 # pomdp = mdp pero no sabes exactamente en que estado estas
 # solo tienes una creencia (probabilidades sobre estados)
 # ejemplo que vamos a usar:
