@@ -1,4 +1,4 @@
-# busqueda de la politica
+# Busqueda de la politica
 # en vez de aprender valores Q o valores de estados,
 # intento buscar directamente cual politica (que accion tomar en cada estado)
 # me da mas recompensa promedio.

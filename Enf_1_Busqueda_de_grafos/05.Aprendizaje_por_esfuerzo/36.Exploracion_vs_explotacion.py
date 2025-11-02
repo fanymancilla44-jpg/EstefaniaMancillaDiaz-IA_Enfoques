@@ -1,4 +1,4 @@
-# exploracion vs explotacion
+# Exploracion vs explotacion
 # - explotacion: elegir la accion que crees que es la mejor
 # - exploracion: probar otra accion para aprender mas
 # por que importa:
