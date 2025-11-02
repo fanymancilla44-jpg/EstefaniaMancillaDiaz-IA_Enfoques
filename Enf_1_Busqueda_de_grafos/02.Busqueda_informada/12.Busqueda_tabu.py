@@ -73,7 +73,6 @@ def busqueda_tabu(inicio, vecinos, valor, tam_tabu, max_iter):
 
     return mejor_global, historial
 
-
 if __name__ == "__main__":
     # cada numero puede saltar a otros numeros
     # valor(x) = x, entonces un numero mas grande es mejor

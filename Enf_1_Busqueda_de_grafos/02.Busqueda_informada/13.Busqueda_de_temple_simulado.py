@@ -150,7 +150,6 @@ if __name__ == "__main__":
     print("mejor estado encontrado:", mejor)
     print("historial de estados visitados:", pasos)
 
-    # notas:
     # - temp_inicial: mientras sea alta, el algoritmo se permite probar cosas peores
     # - factor_enfriar: numero entre 0 y 1, controla que tan rapido baja temp
     # - math.exp(diff / temp): calcula la probabilidad de aceptar un movimiento peor
