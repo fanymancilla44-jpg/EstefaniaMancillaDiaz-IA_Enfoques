@@ -6,6 +6,24 @@
 # si el objetivo esta muy lejos y el limite es chiquito, no lo va a encontrar
 # si el limite es suficiente, si lo encuentra
 
+import csv
+from pathlib import Path
+
+DATA_PATH = Path(__file__).resolve().parent / "data" / "rutas.csv"
+
+def cargar_grafo_csv(ruta_csv: Path, bidireccional: bool = True):
+    grafo = {}
+    with ruta_csv.open(newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            o = row["origen"].strip()
+            d = row["destino"].strip()
+            grafo.setdefault(o, []).append(d)
+            grafo.setdefault(d, [])
+            if bidireccional:
+                grafo.setdefault(d, []).append(o)
+    return grafo
+
 def dfs_limitada(grafo, actual, objetivo, limite, camino=None):
     # grafo: conexiones entre lugares
     # actual: donde estoy ahorita
@@ -28,6 +46,9 @@ def dfs_limitada(grafo, actual, objetivo, limite, camino=None):
 
     # si todavia tengo limite, intento avanzar con cada vecino
     for vecino in grafo.get(actual, []):
+        if vecino in camino:
+         continue
+    
         # importante: le bajo 1 al limite
         resultado = dfs_limitada(
             grafo,
@@ -52,35 +73,21 @@ if __name__ == "__main__":
     # lab va a servidor
     # cafeteria va a servidor
     # servidor no va a otro lado
-    grafo = {
-        "salon": ["pasillo", "patio"],
-        "pasillo": ["lab"],
-        "patio": ["cafeteria"],
-        "lab": ["servidor"],
-        "cafeteria": ["servidor"],
-        "servidor": []
-    }
-    # queremos ir de salon a servidor con distintos limites
-    print("limite = 1")
-    camino1 = dfs_limitada(grafo, "salon", "servidor", limite=1)
+    
+    grafo = cargar_grafo_csv(DATA_PATH, bidireccional=True)
+
+    print("limite = 3 (Casa -> Cafeteria)")
+    camino1 = dfs_limitada(grafo, "Casa", "Cafeteria", limite=3)
     print("  camino encontrado:", camino1)
-    # con limite 1 solo puedo moverme una vez desde salon
-    # salon -> pasillo o salon -> patio
-    # pero todavia no alcanzo servidor
 
-    print("\nlimite = 2")
-    camino2 = dfs_limitada(grafo, "salon", "servidor", limite=2)
+    print("\nlimite = 6 (Casa -> Cafeteria)")
+    camino2 = dfs_limitada(grafo, "Casa", "Cafeteria", limite=6)
     print("  camino encontrado:", camino2)
-    # con limite 2 puedo hacer salon -> pasillo -> lab
-    # pero aun no llego a servidor
 
-    print("\nlimite = 3")
-    camino3 = dfs_limitada(grafo, "salon", "servidor", limite=3)
+    print("\nlimite = 10 (Casa -> Estacionamiento)")
+    camino3 = dfs_limitada(grafo, "Casa", "Estacionamiento", limite=10)
     print("  camino encontrado:", camino3)
-    # con limite 3 ya puedo hacer salon -> pasillo -> lab -> servidor
-    # aqui ya deberia encontrar un camino
 
-    print("\nlimite = 3 pero objetivo raro (estacionamiento)")
-    camino4 = dfs_limitada(grafo, "salon", "estacionamiento", limite=3)
+    print("\nlimite = 10 (Casa -> Taller_CNC)")
+    camino4 = dfs_limitada(grafo, "Casa", "Taller_CNC", limite=10)
     print("  camino encontrado:", camino4)
-    # si sale None es porque no existe forma de llegar
