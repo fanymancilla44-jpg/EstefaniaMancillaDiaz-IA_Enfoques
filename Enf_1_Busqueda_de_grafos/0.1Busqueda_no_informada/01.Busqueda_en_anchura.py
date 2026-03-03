@@ -163,22 +163,19 @@ if __name__ == "__main__":
     # servidor ya no lleva a ningun lado
    
     grafo = cargar_grafo_csv(DATA_PATH, bidireccional=True)
-
+   
     print("grafo de ejemplo (lugar -> a donde puedo ir):")
     for lugar, vecinos in grafo.items():
         print(" ", lugar, "->", vecinos)
 
-    # mostramos el orden en que bfs visitaria los lugares empezando en salon
-    print("\norden de visita empezando en salon:")
-    print(bfs_orden_visita(grafo, "salon"))
+    print("\norden de visita empezando en Casa:")
+    print(bfs_orden_visita(grafo, "Casa"))
 
-    # buscamos el camino mas corto en pasos para ir de salon a servidor
-    print("\ncamino mas corto de salon a servidor:")
-    print(bfs_camino_mas_corto(grafo, "salon", "servidor"))
+    print("\ncamino mas corto de Casa a Cafeteria:")
+    print(bfs_camino_mas_corto(grafo, "Casa", "Cafeteria"))
 
-    # probamos un caso que no existe en el mapa
-    print("\ncamino mas corto de salon a estacionamiento:")
-    print(bfs_camino_mas_corto(grafo, "salon", "estacionamiento"))
+    print("\ncamino mas corto de Casa a Estacionamiento:")
+    print(bfs_camino_mas_corto(grafo, "Casa", "Estacionamiento"))
 
     # nota rapida:
     # si sale None significa que no hay forma de llegar

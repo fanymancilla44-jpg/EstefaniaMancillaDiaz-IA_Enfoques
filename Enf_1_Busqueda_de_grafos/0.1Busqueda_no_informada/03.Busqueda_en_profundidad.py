@@ -6,6 +6,24 @@
 # bfs explora lugares por niveles (lo mas cerca primero)
 # dfs se mete directo por un camino hasta el fondo
 
+import csv
+from pathlib import Path
+
+DATA_PATH = Path(__file__).resolve().parent / "data" / "rutas.csv"
+
+def cargar_grafo_csv(ruta_csv: Path, bidireccional: bool = True):
+    grafo = {}
+    with ruta_csv.open(newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            o = row["origen"].strip()
+            d = row["destino"].strip()
+            grafo.setdefault(o, []).append(d)
+            grafo.setdefault(d, [])
+            if bidireccional:
+                grafo.setdefault(d, []).append(o)
+    return grafo
+
 def dfs_camino(grafo, inicio, objetivo, visitados=None, camino=None):
     # inicio: donde empiezo
     # objetivo: a donde quiero llegar
@@ -61,25 +79,17 @@ if __name__ == "__main__":
     # desde lab puedo ir a servidor
     # cafeteria tambien puede ir a servidor
     # servidor ya no lleva a otro lado
-    grafo = {
-        "salon": ["pasillo", "patio"],
-        "pasillo": ["lab"],
-        "patio": ["cafeteria"],
-        "lab": ["servidor"],
-        "cafeteria": ["servidor"],
-        "servidor": []
-    }
 
-    # buscamos un camino de salon a servidor usando dfs
-    resultado = dfs_camino(grafo, "salon", "servidor")
+    grafo = cargar_grafo_csv(DATA_PATH, bidireccional=True)
 
-    # imprimimos el resultado
-    print("camino encontrado con dfs (salon a servidor):", resultado)
+    resultado = dfs_camino(grafo, "Casa", "Cafeteria")
+    print("camino encontrado con dfs (Casa a Cafeteria):", resultado)
 
-    # prueba con un destino que no existe
-    resultado2 = dfs_camino(grafo, "salon", "estacionamiento")
-    print("camino de salon a estacionamiento:", resultado2)
+    resultado2 = dfs_camino(grafo, "Casa", "Estacionamiento")
+    print("camino de Casa a Estacionamiento:", resultado2)
 
+    resultado3 = dfs_camino(grafo, "Casa", "Taller_CNC")
+    print("camino de Casa a Taller_CNC:", resultado3)
     # dfs se mete en un camino hasta el fondo
     # si no sirve, se regresa y prueba otro
     # dfs no promete el camino mas corto
