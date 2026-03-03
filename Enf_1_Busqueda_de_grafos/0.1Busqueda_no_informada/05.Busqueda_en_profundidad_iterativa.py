@@ -8,6 +8,24 @@
 # - no me voy super profundo desde el inicio (eso puede ser infinito)
 # - pero tarde o temprano llego al objetivo si es alcanzable
 
+import csv
+from pathlib import Path
+
+DATA_PATH = Path(__file__).resolve().parent / "data" / "rutas.csv"
+
+def cargar_grafo_csv(ruta_csv: Path, bidireccional: bool = True):
+    grafo = {}
+    with ruta_csv.open(newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            o = row["origen"].strip()
+            d = row["destino"].strip()
+            grafo.setdefault(o, []).append(d)
+            grafo.setdefault(d, [])
+            if bidireccional:
+                grafo.setdefault(d, []).append(o)
+    return grafo
+
 def dfs_limitada(grafo, actual, objetivo, limite, camino=None):
     # esta funcion es igual que en el tema anterior (profundidad limitada)
     # intenta llegar al objetivo sin pasar el limite
@@ -25,6 +43,8 @@ def dfs_limitada(grafo, actual, objetivo, limite, camino=None):
 
     # pruebo cada vecino desde el lugar actual
     for vecino in grafo.get(actual, []):
+        if vecino in camino:
+            continue
         # llamada recursiva bajando el limite
         resultado = dfs_limitada(
             grafo,
@@ -68,36 +88,25 @@ if __name__ == "__main__":
     # lab -> servidor
     # cafeteria -> servidor
     # servidor -> (nada)
-    grafo = {
-        "salon": ["pasillo", "patio"],
-        "pasillo": ["lab"],
-        "patio": ["cafeteria"],
-        "lab": ["servidor"],
-        "cafeteria": ["servidor"],
-        "servidor": []
-    }
+    
+    grafo = cargar_grafo_csv(DATA_PATH, bidireccional=True)
 
-    # queremos ir de salon a servidor
-    # dejamos que pruebe limites 1,2,3,4,5
     camino, limite_usado = profundidad_iterativa(
         grafo,
-        "salon",
-        "servidor",
-        limite_max=5
+        "Casa",
+        "Cafeteria",
+        limite_max=15
     )
 
-    print("camino de salon a servidor:", camino)
+    print("camino de Casa a Cafeteria:", camino)
     print("limite que se necesito:", limite_usado)
-    # ejemplo: puede salir ['salon','pasillo','lab','servidor'] con limite 3
 
-    # segundo intento: buscamos algo que no existe
     camino2, limite2 = profundidad_iterativa(
         grafo,
-        "salon",
-        "estacionamiento",
-        limite_max=5
-    )
+        "Casa",
+        "Taller_CNC",
+        limite_max=15
+    )   
 
-    print("\ncamino de salon a estacionamiento:", camino2)
+    print("\ncamino de Casa a Taller_CNC:", camino2)
     print("limite que se intento:", limite2)
-    # si camino2 es none significa que no hay forma de llegar
